@@ -4,8 +4,8 @@ import rjdl from "./rjdl.js"
 const app = express();
 app.use(express.json())
 app.get("/", (req, res) => res.send("Express on Vercel :))))"));
-app.post("/api", async (req, res) => {
-  const { url } = req.body
+app.get("/api", async (req, res) => {
+  const { url } = req.query
   if(url){
     const result = await rjdl(url)
     res.json({ ok: true, result })
